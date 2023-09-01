@@ -7,46 +7,46 @@ const Filter = ({ FilterItem }) => {
         <h1 className="text-2xl tracking-widest">Filter </h1>
       </div>
       <div className="flex gap-7 ">
-        <motion.p
+        <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="px-3 cursor-pointer  py-2 rounded-full border border-[#20BD5F]"
           onClick={() => FilterItem("All")}
         >
           All
-        </motion.p>
-        <motion.p
+        </motion.button>
+        <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="px-3 cursor-pointer  py-2 rounded-full border border-[#20BD5F]"
           onClick={() => FilterItem("Duelist")}
         >
           Duelist
-        </motion.p>
-        <motion.p
+        </motion.button>
+        <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="px-3 cursor-pointer  py-2 rounded-full border border-[#20BD5F]"
           onClick={() => FilterItem("Controller")}
         >
           Controller
-        </motion.p>
-        <motion.p
+        </motion.button>
+        <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="px-3 cursor-pointer  py-2 rounded-full border border-[#20BD5F]"
           onClick={() => FilterItem("Initiator")}
         >
           Initiator
-        </motion.p>
-        <motion.p
+        </motion.button>
+        <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="px-3 cursor-pointer  py-2 rounded-full border border-[#20BD5F]"
           onClick={() => FilterItem("Sentinel")}
         >
           Sentinel
-        </motion.p>
+        </motion.button>
       </div>
     </div>
   );
