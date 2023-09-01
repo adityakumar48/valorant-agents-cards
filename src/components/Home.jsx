@@ -26,8 +26,8 @@ const Home = () => {
         All Agents
       </h3>
       <div className="flex flex-wrap">
-        {data.map((item) => {
-          return <Card data={item} key={item.uuid} />;
+        {data.map((item, index) => {
+          return <Card data={item} key={item.uuid} index={index} />;
         })}
       </div>
     </div>

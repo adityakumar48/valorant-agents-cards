@@ -1,10 +1,25 @@
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
-const Card = ({ data }) => {
+const Card = ({ data, index }) => {
   return data.fullPortrait === null ? null : (
-    <div className="bg-[#1D1D1D] w-[25rem] shadow-gray-900  shadow-lg m-4 rounded-xl">
+    <motion.div
+      layoutId={data.uuid}
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: "1", ease: "easeInOut", delay: index * 0.5 }}
+      whileHover={{
+        borderWidth: "1px",
+        borderStyle: "solid",
+        borderColor: "#20BD5F",
+        opacity: 1,
+        transition: { duration: "0.2", ease: "easeInOut", delay: 0.2 },
+      }}
+      className="bg-[#1D1D1D] w-[25rem] shadow-gray-900  shadow-lg m-4 rounded-xl"
+    >
       <div className="">
-        <img
+        <motion.img
+          layout
           src={data.fullPortrait}
           alt={data.displayName}
           loading="lazy"
@@ -35,24 +50,38 @@ const Card = ({ data }) => {
               }
 
               return (
-                <img
+                <motion.img
+                  whileHover={{
+                    // borderWidth: "1px",
+                    // borderStyle: "solid",
+                    // borderColor: "#20BD5F",
+                    backgroundColor: "#20BD5F",
+                    opacity: 1,
+                    transition: {
+                      duration: 0.2,
+                      ease: "easeInOut",
+                      delay: 0.2,
+                    },
+                  }}
+                  layout
                   src={item?.displayIcon}
                   alt={item.displayName}
                   loading="lazy"
                   key={item.uuid}
-                  className="bg-[#262626] cursor-pointer p-4 transition-all hover:bg-[#20BD5F] duration-300 ease-in-out rounded-full"
+                  className="bg-[#262626] cursor-pointer p-4  rounded-full"
                 />
               );
             })}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 Card.propTypes = {
   data: PropTypes.object,
+  index: PropTypes.number,
 };
 
 export default Card;
