@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import Filter from "./Filter";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
 
   const fetchData = async () => {
     const res = await fetch("https://valorant-api.com/v1/agents");
@@ -10,6 +12,7 @@ const Home = () => {
 
     if (data.status === 200) {
       setData(data.data);
+      setFilteredData(data.data);
     }
   };
   data.sort((a, b) => {
@@ -19,14 +22,26 @@ const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  //   console.log(data);
+
+  const FilterItem = (category) => {
+    if (category === "All") {
+      setFilteredData(data);
+    } else {
+      const filteredData = data.filter(
+        (item) => item?.role?.displayName === category
+      );
+      setFilteredData(filteredData);
+    }
+  };
+
   return (
     <div className="h-[90vh] px-24">
+      <Filter FilterItem={FilterItem} />
       <h3 className="text-2xl mb-4 text-gray-300 spacing tracking-wider pt-8">
         All Agents
       </h3>
       <div className="flex flex-wrap">
-        {data.map((item, index) => {
+        {filteredData.map((item, index) => {
           return <Card data={item} key={item.uuid} index={index} />;
         })}
       </div>
