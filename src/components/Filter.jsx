@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 const Filter = ({ FilterItem }) => {
   return (
-    <div className="h-[10vh] flex items-center justify-between">
+    <div className=" md:h-[10vh] flex items-center justify-between">
       <div>
         <h1 className="text-2xl tracking-widest">Filter </h1>
       </div>
-      <div className="flex gap-7 ">
+      <div className="flex md:gap-7 md:pt-0 gap-2 mt-5 md:mt-0 flex-wrap ">
         <motion.button
           whileHover={{ backgroundColor: "#20BD5F" }}
           transition={{ duration: 0.2, ease: "easeInOut" }}

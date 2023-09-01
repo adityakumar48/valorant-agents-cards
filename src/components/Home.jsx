@@ -37,7 +37,7 @@ const Home = ({ setFetechedData }) => {
   };
 
   return (
-    <div className="h-[90vh]  px-24">
+    <div className="h-[90vh] px-8  md:px-24">
       <Filter FilterItem={FilterItem} />
       <h3 className="text-2xl mb-4 text-gray-300 spacing tracking-wider pt-8">
         All Agents

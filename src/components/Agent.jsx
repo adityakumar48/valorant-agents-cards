@@ -13,15 +13,15 @@ const Agent = ({ data }) => {
 
   return (
     agent && (
-      <div className="px-24 h-[100vh]">
-        <h1 className="mt-8 text-4xl tracking-widest hover:underline duration-200 transition-all ease-in-out">
+      <div className="md:px-24">
+        <h1 className="mt-8  text-4xl tracking-widest hover:underline duration-200 transition-all ease-in-out">
           Agent Details
         </h1>
-        <div className="flex justify-between  pt-12 ">
-          <div className="h-full w-1/2">
+        <div className=" md:flex block justify-between  pt-12 ">
+          <div className=" mx-auto h-full w-1/2">
             <img src={agent?.fullPortrait} alt={agent?.displayName} />
           </div>
-          <div className="bg-[#1D1D1D]  w-[60%] p-5  shadow-gray-900  shadow-lg m-4 rounded-xl">
+          <div className="bg-[#1D1D1D]  md:w-[60%] p-5  shadow-gray-900  shadow-lg m-4 rounded-xl">
             <p className="text-4xl pt-5 flex items-center">
               <img
                 src={agent?.displayIconSmall}
@@ -100,7 +100,7 @@ const Agent = ({ data }) => {
         </div>
 
         <h1 className="text-5xl pl-8 pt-14">Role —</h1>
-        <div className="flex flex-wrap justify-center pt-8">
+        <div className="md:flex flex-wrap justify-center pt-8">
           <AbilityCard type="roles" data={agent?.role} />
         </div>
       </div>

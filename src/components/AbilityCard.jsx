@@ -21,11 +21,11 @@ const AbilityCard = ({ type, data }) => {
         </motion.div>
       ) : (
         <motion.div
-          className="bg-[#1D1D1D]  w-[60%] p-5 mb-16 shadow-gray-900  shadow-lg m-4 rounded-xl"
+          className="bg-[#1D1D1D]  md:w-[60%] p-5 mb-16 shadow-gray-900  shadow-lg m-4 rounded-xl"
           whileHover={{ backgroundColor: "#20BD5F", cursor: "pointer" }}
           layout
         >
-          <div className="flex items-center">
+          <div className="md:flex items-center">
             <img
               src={data?.displayIcon}
               alt={data?.displayName}

@@ -18,7 +18,7 @@ const Card = ({ data, index }) => {
         opacity: 1,
         transition: { duration: "0.2", ease: "easeInOut", delay: 0.2 },
       }}
-      className="bg-[#1D1D1D] w-[25rem] cursor-pointer shadow-gray-900  shadow-lg m-4 rounded-xl"
+      className="bg-[#1D1D1D] mx-auto w-[25rem] cursor-pointer shadow-gray-900  shadow-lg m-4 rounded-xl"
       onClick={() => navigate(`/agent/${data.uuid}`)}
     >
       <div className="">
@@ -29,11 +29,11 @@ const Card = ({ data, index }) => {
           loading="lazy"
           className="h-full w-full"
         />
-        <div className="pl-8">
+        <div className="md:pl-8 pl-5">
           <h2 className="text-white  pt-5 tracking-[3px] text-4xl">
             {data.displayName}
           </h2>
-          <div className="flex items-center py-2">
+          <div className="flex flex-wrap items-center py-2">
             <div className="w-5">
               <img
                 src={data?.role?.displayIcon}
@@ -45,8 +45,8 @@ const Card = ({ data, index }) => {
             </span>
           </div>
         </div>
-        <p className="pl-8 text-xl pb-2">Abilites</p>
-        <div className="pl-5 w-full h-full">
+        <p className="md:pl-8 pl-4 text-xl pb-2">Abilites</p>
+        <div className="md:pl-5 pl-4 ">
           <div className="w-16 pb-5 justify-between gap-2  flex">
             {data?.abilities?.map((item, index) => {
               if (item?.displayIcon === null) {
@@ -56,9 +56,6 @@ const Card = ({ data, index }) => {
               return (
                 <motion.img
                   whileHover={{
-                    // borderWidth: "1px",
-                    // borderStyle: "solid",
-                    // borderColor: "#20BD5F",
                     backgroundColor: "#20BD5F",
                     opacity: 1,
                     transition: {
@@ -72,7 +69,7 @@ const Card = ({ data, index }) => {
                   alt={item.displayName}
                   loading="lazy"
                   key={index}
-                  className="bg-[#262626] cursor-pointer p-4  rounded-full"
+                  className="bg-[#262626] cursor-pointer w-[18px] md:w-10 rounded-full"
                 />
               );
             })}
