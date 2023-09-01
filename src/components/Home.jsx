@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import Filter from "./Filter";
+import PropTypes from "prop-types";
 
-const Home = () => {
+const Home = ({ setFetechedData }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
 
@@ -13,6 +14,7 @@ const Home = () => {
     if (data.status === 200) {
       setData(data.data);
       setFilteredData(data.data);
+      setFetechedData(data.data);
     }
   };
   data.sort((a, b) => {
@@ -35,7 +37,7 @@ const Home = () => {
   };
 
   return (
-    <div className="h-[90vh] px-24">
+    <div className="h-[90vh]  px-24">
       <Filter FilterItem={FilterItem} />
       <h3 className="text-2xl mb-4 text-gray-300 spacing tracking-wider pt-8">
         All Agents
@@ -47,6 +49,10 @@ const Home = () => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  setFetechedData: PropTypes.func,
 };
 
 export default Home;
