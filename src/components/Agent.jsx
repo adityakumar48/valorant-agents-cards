@@ -17,6 +17,7 @@ const Agent = ({ data }) => {
         <h1 className="mt-8  text-4xl tracking-widest hover:underline duration-200 transition-all ease-in-out">
           Agent Details
         </h1>
+
         <div className=" md:flex block justify-between  pt-12 ">
           <div className=" mx-auto h-full w-1/2">
             <img src={agent?.fullPortrait} alt={agent?.displayName} />

@@ -69,7 +69,7 @@ const Card = ({ data, index }) => {
                   alt={item.displayName}
                   loading="lazy"
                   key={index}
-                  className="bg-[#262626] cursor-pointer w-[18px] md:w-10 rounded-full"
+                  className="bg-[#262626] cursor-pointer md:p-2 w-[18px] md:w-10 rounded-full"
                 />
               );
             })}

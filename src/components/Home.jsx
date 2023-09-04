@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import Filter from "./Filter";
 import PropTypes from "prop-types";
+import Loader from "./Loader";
 
 const Home = ({ setFetechedData }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
 
@@ -15,6 +17,7 @@ const Home = ({ setFetechedData }) => {
       setData(data.data);
       setFilteredData(data.data);
       setFetechedData(data.data);
+      setIsLoading(false);
     }
   };
   data.sort((a, b) => {
@@ -22,6 +25,7 @@ const Home = ({ setFetechedData }) => {
   });
 
   useEffect(() => {
+    setIsLoading(true);
     fetchData();
   }, []);
 
@@ -43,9 +47,13 @@ const Home = ({ setFetechedData }) => {
         All Agents
       </h3>
       <div className="flex flex-wrap">
-        {filteredData.map((item, index) => {
-          return <Card data={item} key={item.uuid} index={index} />;
-        })}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          filteredData.map((item, index) => {
+            return <Card data={item} key={item.uuid} index={index} />;
+          })
+        )}
       </div>
     </div>
   );
